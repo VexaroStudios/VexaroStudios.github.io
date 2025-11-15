@@ -4,13 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vexaro Studios</title>
-    <link rel="stylesheet" href="style.css" />
 
-    <!-- Icons -->
-    <script src="https://github.com/VexaroStudios/VexaroStudios.github.io/blob/main/logo.png"></script>
+    <!-- Style -->
+    <link rel="stylesheet" href="style.css" />
 
     <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
@@ -28,7 +30,7 @@
         </nav>
 
         <div class="socials">
-            <a href="https://github.com/VexaroStudios/VexaroStudios.github.io"><i data-lucide="github"></i></a>
+            <a href="https://github.com/VexaroStudios"><i data-lucide="github"></i></a>
             <a href="#"><i data-lucide="instagram"></i></a>
             <a href="#"><i data-lucide="mail"></i></a>
         </div>
@@ -37,7 +39,10 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
+
+            <!-- LOGO WORKING -->
             <img src="logo.png" class="hero-logo" />
+
             <h1>We Bring Ideas to Life.</h1>
             <p>Modern apps, tools, and games — crafted by creative minds.</p>
             <a href="#about" class="btn">Learn More</a>
@@ -89,12 +94,15 @@
         <p>© 2025 Vexaro Studios — All Rights Reserved.</p>
     </footer>
 
+    <!-- SCRIPTS -->
     <script>
+        // Load Lucide icons
         lucide.createIcons();
 
-        particlesJS.load("particles-js", "particles.json");
+        // Load Particles.js with your file
+        particlesJS.load("particles-js", "particles.json", function () {
+            console.log("Particles.js background loaded successfully.");
+        });
     </script>
 </body>
 </html>
-
-
