@@ -1,0 +1,133 @@
+/* Farbvariablen */
+:root {
+    --bg: #0d0d0f;
+    --card: #151518;
+    --text: #ffffff;
+    --accent: #9b4dff;
+    --accent-glow: rgba(155, 77, 255, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+nav a {
+    margin-left: 20px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent);
+    text-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 140px 20px;
+    background: linear-gradient(135deg, #1a1a20, #0d0d0f);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--accent);
+    text-shadow: 0 0 15px var(--accent-glow);
+}
+
+.hero p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.btn {
+    margin-top: 25px;
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--accent);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* SECTIONS */
+.section {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--accent);
+}
+
+/* PROJECT CARDS */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.project-card {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 10px;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    color: #777;
+    border-top: 1px solid r
