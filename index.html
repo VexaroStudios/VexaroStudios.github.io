@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vexaro Studios</title>
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
+
 <body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
 
     <!-- Navigation -->
     <header>
@@ -17,46 +26,53 @@
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
+
+        <div class="socials">
+            <a href="#"><i data-lucide="github"></i></a>
+            <a href="#"><i data-lucide="instagram"></i></a>
+            <a href="#"><i data-lucide="mail"></i></a>
+        </div>
     </header>
 
-    <!-- Hero -->
+    <!-- Hero Section -->
     <section id="home" class="hero">
-        <h1 class="glow-title">We Bring Ideas to Life.</h1>
-        <p class="hero-sub">
-            Modern apps, tools, and games — crafted by creative minds.
-        </p>
-        <a href="#about" class="cta-btn">Learn More</a>
+        <div class="hero-content">
+            <img src="logo.png" class="hero-logo" />
+            <h1>We Bring Ideas to Life.</h1>
+            <p>Modern apps, tools, and games — crafted by creative minds.</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
     </section>
 
     <!-- About -->
     <section id="about" class="section">
-        <h2 class="section-title">About Us</h2>
-        <p class="section-text">
-            Vexaro Studios builds modern applications, tools, and software for gamers 
-            and developers. Our focus lies on technology, design, and innovation — 
+        <h2>About Us</h2>
+        <p>
+            Vexaro Studios builds modern applications, tools, and software for gamers
+            and developers. Our focus lies on technology, design, and innovation —
             transforming ideas into real digital experiences.
         </p>
     </section>
 
     <!-- Projects -->
     <section id="projects" class="section">
-        <h2 class="section-title">Projects</h2>
+        <h2>Projects</h2>
 
         <div class="project-grid">
 
             <div class="project-card">
                 <h3>Project 1</h3>
-                <p>Coming soon… stay tuned.</p>
+                <p>Coming soon — stay tuned.</p>
             </div>
 
             <div class="project-card">
                 <h3>Project 2</h3>
-                <p>More information coming later.</p>
+                <p>More details will follow.</p>
             </div>
 
             <div class="project-card">
                 <h3>Project 3</h3>
-                <p>Details will be revealed soon.</p>
+                <p>New information coming soon.</p>
             </div>
 
         </div>
@@ -64,16 +80,19 @@
 
     <!-- Contact -->
     <section id="contact" class="section">
-        <h2 class="section-title">Contact</h2>
-        <p class="section-text">
-            Want to get in touch? Our contact page will be available soon.
-        </p>
+        <h2>Contact</h2>
+        <p>Want to contact us? A contact form will be available soon.</p>
     </section>
 
     <!-- Footer -->
     <footer>
-        © 2025 Vexaro Studios — All Rights Reserved.
+        <p>© 2025 Vexaro Studios — All Rights Reserved.</p>
     </footer>
 
+    <script>
+        lucide.createIcons();
+
+        particlesJS.load("particles-js", "particles.json");
+    </script>
 </body>
 </html>
