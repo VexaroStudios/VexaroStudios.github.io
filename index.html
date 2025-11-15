@@ -1,46 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Vexaro Studios</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vexaro Studios</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header class="hero">
-    <div class="container">
-      <h1 class="logo">Vexaro Studios</h1>
-      <p class="slogan">Where Ideas Come Alive.</p>
-      <a class="btn" href="#about">Mehr erfahren</a>
-    </div>
-  </header>
 
-  <main>
+<body>
+    <header>
+        <div class="logo">Vexaro Studios</div>
+        <nav>
+            <a href="#about">Über uns</a>
+            <a href="#projects">Projekte</a>
+            <a href="#contact">Kontakt</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>We Bring Ideas to Life.</h1>
+        <p>Moderne Apps, Tools und Games – entwickelt von kreativen Köpfen.</p>
+        <a class="btn" href="#about">Mehr erfahren</a>
+    </section>
+
     <section id="about" class="section">
-      <div class="container">
         <h2>Über uns</h2>
-        <p>Vexaro Studios entwickelt moderne Apps und Tools für Gamer und Entwickler. Wir kombinieren Technik, Design und Gameplay.</p>
-      </div>
+        <p>
+            Vexaro Studios entwickelt moderne Anwendungen, Tools und Software für Gamer und Entwickler.
+            Unser Fokus liegt auf Technik, Design und Innovation.
+        </p>
     </section>
 
     <section id="projects" class="section">
-      <div class="container">
         <h2>Projekte</h2>
-        <p>Hier kommen später deine Projekte, Demos und Downloads hin.</p>
-      </div>
+
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Projekt 1</h3>
+                <p>In Kürze verfügbar – bleib gespannt!</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Projekt 2</h3>
+                <p>Mehr Infos folgen.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Projekt 3</h3>
+                <p>Weitere Details erscheinen bald.</p>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <footer class="footer">
-    <div class="container">
-      <p>© <span id="year"></span> Vexaro Studios</p>
-    </div>
-  </footer>
+    <section id="contact" class="section">
+        <h2>Kontakt</h2>
+        <p>Du willst Kontakt aufnehmen? Schreibe uns bald über unser Kontaktformular.</p>
+    </section>
 
-  <script>
-    // Jahr im Footer setzen
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    <footer>
+        © 2025 Vexaro Studios – All Rights Reserved.
+    </footer>
 </body>
 </html>
