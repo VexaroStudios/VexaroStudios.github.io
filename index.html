@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vexaro Studios</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1 class="logo">Vexaro Studios</h1>
+      <p class="slogan">Where Ideas Come Alive.</p>
+      <a class="btn" href="#about">Mehr erfahren</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="section">
+      <div class="container">
+        <h2>Über uns</h2>
+        <p>Vexaro Studios entwickelt moderne Apps und Tools für Gamer und Entwickler. Wir kombinieren Technik, Design und Gameplay.</p>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Projekte</h2>
+        <p>Hier kommen später deine Projekte, Demos und Downloads hin.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Vexaro Studios</p>
+    </div>
+  </footer>
+
+  <script>
+    // Jahr im Footer setzen
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
