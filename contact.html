@@ -135,59 +135,60 @@
     particlesJS.load("particles-js", "particles.json");
 
     // --- DISCORD EMBED SEND ---
-    document.getElementById("sendBtn").addEventListener("click", async () => {
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const msg = document.getElementById("message").value.trim();
+document.getElementById("sendBtn").addEventListener("click", async () => {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const msg = document.getElementById("message").value.trim();
 
-        if (!name || !email || !msg) {
-            alert("Please fill out all fields.");
-            return;
-        }
+    if (!name || !email || !msg) {
+        alert("Please fill out all fields.");
+        return;
+    }
 
-        const webhook = "https://discord.com/api/webhooks/1439416969739767882/bRSwzRqPcxxDKXaZPGy5eJjwurAapQduEAI7rP2OMw4PwPmLvOSd63K2arZZgUwUsJ0u";
+    const webhook = "DEIN_WEBHOOK_LINK";
 
-        const embed = {
-            username: "Vexaro Contact",
-            avatar_url: "https://i.imgur.com/lDTnOcP",
-            embeds: [
-                {
-                    title: "📨 New Contact Message",
-                    color: 0x9B59FF, // LILA COLOR
-                    fields: [
-                        {
-                            name: "👤 Name",
-                            value: name,
-                            inline: false
-                        },
-                        {
-                            name: "📧 Email",
-                            value: email,
-                            inline: false
-                        },
-                        {
-                            name: "💬 Message",
-                            value: msg,
-                            inline: false
-                        }
-                    ],
-                    footer: {
-                        text: "Vexaro Studios Contact Form",
-                        icon_url: "https://i.imgur.com/eO3vYTF.png"
+    const data = {
+        username: "Contact App",
+        avatar_url: "https://i.imgur.com/eO3vYTF.png",
+        embeds: [
+            {
+                title: "📨 New Contact Message",
+                color: 5793266,
+                thumbnail: {
+                    url: "https://i.imgur.com/eO3vYTF.png"
+                },
+                fields: [
+                    {
+                        name: "👤 Name",
+                        value: name
                     },
-                    timestamp: new Date().toISOString()
-                }
-            ]
-        };
+                    {
+                        name: "📧 Email",
+                        value: email
+                    },
+                    {
+                        name: "💬 Message",
+                        value: msg
+                    }
+                ],
+                footer: {
+                    text: "Vexaro Studios Contact System",
+                    icon_url: "https://i.imgur.com/eO3vYTF.png"
+                },
+                timestamp: new Date()
+            }
+        ]
+    };
 
-        await fetch(webhook, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(embed)
-        });
-
-        alert("Message sent successfully!");
+    await fetch(webhook, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
     });
+
+    alert("Message sent successfully!");
+});
+    
 </script>
 
 </body>
