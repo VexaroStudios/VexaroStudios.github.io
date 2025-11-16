@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vexaro Studios</title>
 
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- Particles -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Intro Animation -->
-    <script defer src="intro.js"></script>
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 
 <body>
 
-    <!-- INTRO / WELCOME SCREEN -->
-    <div id="intro-screen">
+    <!-- INTRO SCREEN -->
+    <div class="intro">
         <img src="logo.png" class="intro-logo">
-        <h1 class="intro-title">VEXARO STUDIOS</h1>
+        <h1 class="intro-text">VEXARO STUDIOS</h1>
     </div>
 
-    <!-- PARTICLES BACKGROUND -->
+    <!-- PARTICLES -->
     <div id="particles-js"></div>
 
     <!-- NAVIGATION -->
@@ -40,35 +37,31 @@
         </nav>
 
         <div class="socials">
-            <a href="https://github.com/VexaroStudios"><i data-lucide="github"></i></a>
+            <a href="#"><i data-lucide="github"></i></a>
             <a href="#"><i data-lucide="instagram"></i></a>
             <a href="#"><i data-lucide="mail"></i></a>
         </div>
     </header>
 
     <!-- HERO SECTION -->
-    <section id="home" class="hero fade-section">
+    <section id="home" class="hero">
         <div class="hero-content">
-            <img src="logo.png" class="hero-logo" />
-            <h1 class="glow-title">We Bring Ideas to Life.</h1>
-            <p class="hero-subtitle">Modern apps, tools, and games — crafted by creative minds.</p>
-
+            <img src="logo.png" class="hero-logo">
+            <h1>We Bring Ideas to Life.</h1>
+            <p>Modern apps, tools, and games — crafted by creative minds.</p>
             <a href="#about" class="btn">Learn More</a>
         </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="section fade-section">
-        <h2 class="section-title">About Us</h2>
-        <p>
-            Vexaro Studios builds modern applications, tools, and software for gamers
-            and developers, focusing on technology, design, and innovation.
-        </p>
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>Vexaro Studios builds modern applications, software, tools and more — focusing on technology, design and innovation.</p>
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="section fade-section">
-        <h2 class="section-title">Projects</h2>
+    <section id="projects" class="section">
+        <h2>Projects</h2>
 
         <div class="project-grid">
 
@@ -91,19 +84,15 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section fade-section">
-        <h2 class="section-title">Contact</h2>
+    <section id="contact" class="section">
+        <h2>Contact</h2>
         <p>A contact form will be available soon.</p>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <p>© 2025 Vexaro Studios — All Rights Reserved.</p>
     </footer>
 
-    <script>
-        lucide.createIcons();
-        particlesJS.load("particles-js", "particles.json");
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
