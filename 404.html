@@ -1,35 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404 - Vexaro Studios</title>
-    <link rel="stylesheet" href="404.css" />
+
+    <!-- PARTICLES -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #0b0014;
+            overflow: hidden;
+            font-family: "Poppins", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .box {
+            background: rgba(25, 0, 40, 0.6);
+            padding: 40px 60px;
+            border-radius: 20px;
+            border: 2px solid rgba(160, 80, 255, 0.4);
+            box-shadow: 0 0 35px rgba(150, 60, 255, 0.7);
+            text-align: center;
+            animation: fadeIn 1.2s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.85); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+        .logo {
+            width: 110px;
+            margin-bottom: 20px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* GLITCH EFFECT */
+        .glitch {
+            font-size: 90px;
+            font-weight: 800;
+            color: #d6b7ff;
+            position: relative;
+            text-shadow: 0 0 12px #a760ff;
+            animation: glitch 1.5s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-3px, 2px) }
+            40% { transform: translate(3px, -2px) }
+            60% { transform: translate(-2px, 1px) }
+            80% { transform: translate(2px, -1px) }
+            100% { transform: translate(0) }
+        }
+
+        p {
+            margin-top: 10px;
+            color: #c9aaff;
+            font-size: 18px;
+        }
+
+        .btn {
+            margin-top: 25px;
+            padding: 14px 25px;
+            background: #8d3bff;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 0 18px #8d3bff;
+            transition: 0.25s;
+        }
+
+        .btn:hover {
+            background: #b670ff;
+            box-shadow: 0 0 28px #b670ff;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- BACKGROUND PARTICLES -->
-    <div id="particles-js"></div>
+<div id="particles-js"></div>
 
-    <!-- FOREGROUND SPARKS -->
-    <canvas id="spark-canvas"></canvas>
+<div class="box">
+    <img src="logo.png" class="logo" alt="Vexaro Logo">
 
-    <!-- MAIN BOX -->
-    <div class="center-box">
+    <div class="glitch">404</div>
 
-        <img class="logo" src="logo.png">
+    <p>The page you're looking for doesn't exist.</p>
 
-        <h1 class="glitch" data-text="404">404</h1>
-        <p class="subtitle">The page you're looking for doesn't exist.</p>
+    <button class="btn" id="teleport">Teleport Home</button>
 
-        <a href="index.html" class="btn-teleport">
-            <span>Teleport Home</span>
-        </a>
+    <!-- Sound -->
+    <audio id="tpSound" src="https://cdn.jsdelivr.net/gh/VexaroStudios/CDN/audio/teleport-whoosh.mp3"></audio>
+</div>
 
-    </div>
+<script>
+    // Load particles
+    particlesJS.load("particles-js", "particles.json");
 
-<script src="404.js"></script>
+    // Teleport button sound
+    const tpBtn = document.getElementById("teleport");
+    const tpSound = document.getElementById("tpSound");
+
+    tpBtn.addEventListener("click", () => {
+        tpSound.currentTime = 0;
+        tpSound.play();
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 400);
+    });
+</script>
+
 </body>
 </html>
