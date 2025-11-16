@@ -130,23 +130,16 @@
 
         try {
             sound.currentTime = 0;
-            await sound.play(); // Chrome Fix
+            await sound.play();
         } catch (e) {
             console.log("Sound cannot play:", e);
         }
 
         document.body.classList.add("warp-out");
 
-        /* WARTET BIS AUDIO FERTIG IST */
         sound.onended = () => {
             window.location.href = "index.html";
         };
-
-        /* Falls du lieber festen Timer willst:
-        setTimeout(() => {
-            window.location.href = "index.html";
-        }, 900); 
-        */
     });
 
     document.addEventListener("mousemove", (e) => {
