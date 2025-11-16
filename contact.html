@@ -151,7 +151,7 @@ const embed = {
     embeds: [
         {
             title: "📨 New Contact Message",
-            color: 0x9c5bff, // Lila
+            color: 0x9c5bff,
             thumbnail: {
                 url: "https://raw.githubusercontent.com/VexaroStudios/VexaroStudios.github.io/main/logo.png"
             },
@@ -168,7 +168,7 @@ const embed = {
     ]
 };
 
-await fetch(webhook, {
+await fetch("https://corsproxy.io/?" + encodeURIComponent(webhook), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(embed)
