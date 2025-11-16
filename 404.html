@@ -1,137 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 - Vexaro Studios</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - Vexaro Studios</title>
 
-    <!-- PARTICLES -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            background: #0b0014;
-            overflow: hidden;
-            font-family: "Poppins", sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-        }
+<style>
+    body {
+        margin: 0;
+        background: #070110;
+        font-family: "Poppins", sans-serif;
+        overflow: hidden;
+        user-select: none;
+    }
 
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
+    #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
 
-        .box {
-            background: rgba(25, 0, 40, 0.6);
-            padding: 40px 60px;
-            border-radius: 20px;
-            border: 2px solid rgba(160, 80, 255, 0.4);
-            box-shadow: 0 0 35px rgba(150, 60, 255, 0.7);
-            text-align: center;
-            animation: fadeIn 1.2s ease forwards;
-        }
+    .center-box {
+        width: 420px;
+        padding: 40px;
+        margin: 110px auto;
+        background: rgba(25, 0, 40, 0.6);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        text-align: center;
+        border: 2px solid rgba(170, 0, 255, 0.4);
+        box-shadow: 0 0 25px #8f39ff;
+        transition: transform 0.2s ease-out;
+        animation: float 4s ease-in-out infinite;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.85); }
-            to   { opacity: 1; transform: scale(1); }
-        }
+    @keyframes float {
+        0%,100% { transform: translateY(0px); }
+        50% { transform: translateY(-12px); }
+    }
 
-        .logo {
-            width: 110px;
-            margin-bottom: 20px;
-            animation: float 4s ease-in-out infinite;
-        }
+    .logo {
+        width: 110px;
+        margin-bottom: 15px;
+        filter: drop-shadow(0 0 12px #9d4bff);
+    }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
-            100% { transform: translateY(0px); }
-        }
+    .error {
+        font-size: 95px;
+        font-weight: 700;
+        color: #d7b8ff;
+        text-shadow: 0 0 20px #b66bff;
+        animation: glitch 1.6s infinite;
+    }
 
-        /* GLITCH EFFECT */
-        .glitch {
-            font-size: 90px;
-            font-weight: 800;
-            color: #d6b7ff;
-            position: relative;
-            text-shadow: 0 0 12px #a760ff;
-            animation: glitch 1.5s infinite;
-        }
+    @keyframes glitch {
+        0% { opacity: 1; transform: translate(0); }
+        20% { opacity: 0.9; transform: translate(2px, -2px); }
+        40% { opacity: 1; transform: translate(-3px, 1px); }
+        60% { opacity: 0.95; transform: translate(1px, 2px); }
+        80% { opacity: 1; transform: translate(-2px, -1px); }
+        100% { opacity: 1; transform: translate(0); }
+    }
 
-        @keyframes glitch {
-            0% { transform: translate(0) }
-            20% { transform: translate(-3px, 2px) }
-            40% { transform: translate(3px, -2px) }
-            60% { transform: translate(-2px, 1px) }
-            80% { transform: translate(2px, -1px) }
-            100% { transform: translate(0) }
-        }
+    p {
+        color: #caaaff;
+        margin-top: -10px;
+        font-size: 16px;
+    }
 
-        p {
-            margin-top: 10px;
-            color: #c9aaff;
-            font-size: 18px;
-        }
+    .btn {
+        margin-top: 20px;
+        padding: 12px 28px;
+        border-radius: 12px;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+        background: linear-gradient(135deg, #b066ff, #7a30ff);
+        color: white;
+        transition: 0.3s;
+        box-shadow: 0 0 15px #7c2aff;
+    }
 
-        .btn {
-            margin-top: 25px;
-            padding: 14px 25px;
-            background: #8d3bff;
-            border: none;
-            border-radius: 10px;
-            color: white;
-            cursor: pointer;
-            font-size: 18px;
-            box-shadow: 0 0 18px #8d3bff;
-            transition: 0.25s;
-        }
+    .btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 25px #ad4bff;
+        filter: brightness(1.2);
+    }
 
-        .btn:hover {
-            background: #b670ff;
-            box-shadow: 0 0 28px #b670ff;
-            transform: scale(1.05);
-        }
-    </style>
+    /* Warp Fade Animation */
+    .warp-out {
+        animation: warp 0.6s forwards ease-in-out;
+    }
+
+    @keyframes warp {
+        0% { opacity: 1; filter: blur(0px); }
+        100% { opacity: 0; filter: blur(35px); }
+    }
+</style>
+
 </head>
-
 <body>
 
 <div id="particles-js"></div>
 
-<div class="box">
-    <img src="logo.png" class="logo" alt="Vexaro Logo">
+<div class="center-box" id="card">
+    <img src="logo.png" class="logo">
 
-    <div class="glitch">404</div>
+    <div class="error">404</div>
+    <p>The page you're looking for doesn’t exist.</p>
 
-    <p>The page you're looking for doesn't exist.</p>
-
-    <button class="btn" id="teleport">Teleport Home</button>
-
-    <!-- Sound -->
-    <audio id="tpSound" src="https://cdn.jsdelivr.net/gh/VexaroStudios/CDN/audio/teleport-whoosh.mp3"></audio>
+    <button class="btn" id="tpBtn">Teleport Home</button>
 </div>
 
+<!-- Teleport Sound -->
+<audio id="tpSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_b594a38b89.mp3"></audio>
+
 <script>
-    // Load particles
+    /* Particle Background */
     particlesJS.load("particles-js", "particles.json");
 
-    // Teleport button sound
-    const tpBtn = document.getElementById("teleport");
-    const tpSound = document.getElementById("tpSound");
+    /* Teleport Button */
+    const btn = document.getElementById("tpBtn");
+    const box = document.getElementById("card");
+    const sound = document.getElementById("tpSound");
 
-    tpBtn.addEventListener("click", () => {
-        tpSound.currentTime = 0;
-        tpSound.play();
+    btn.addEventListener("click", () => {
+        sound.volume = 0.5;
+        sound.play();
+
+        document.body.classList.add("warp-out");
+
         setTimeout(() => {
             window.location.href = "index.html";
-        }, 400);
+        }, 500);
+    });
+
+    /* 3D Tilt */
+    document.addEventListener("mousemove", (e) => {
+        const x = (window.innerWidth / 2 - e.clientX) / 25;
+        const y = (window.innerHeight / 2 - e.clientY) / 25;
+        box.style.transform = `rotateX(${y}deg) rotateY(${-x}deg)`;
     });
 </script>
 
