@@ -1,67 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us – Vexaro Studios</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us – Vexaro Studios</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+<style>
+    body {
+        margin: 0;
+        background: #080110;
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+        color: white;
+    }
+
+    #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0; left: 0;
+        z-index: -1;
+    }
+
+    .page-title {
+        margin-top: 150px;
+        text-align: center;
+        font-size: 42px;
+        font-weight: 700;
+        color: #d6b3ff;
+        text-shadow: 0 0 18px #9f52ff;
+    }
+
+    .card {
+        width: 60%;
+        margin: 40px auto;
+        padding: 40px;
+        background: rgba(25, 0, 40, 0.45);
+        border-radius: 18px;
+        backdrop-filter: blur(12px);
+        border: 2px solid rgba(160, 80, 255, 0.4);
+        box-shadow: 0 0 25px #8f39ff;
+        animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%,100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    h2 {
+        color: #d8b6ff;
+        margin-bottom: 15px;
+    }
+
+    .back {
+        display: block;
+        margin-top: 20px;
+        text-align: left;
+        color: #c08dff;
+        text-decoration: none;
+    }
+    .back:hover {
+        text-decoration: underline;
+    }
+</style>
 </head>
 
 <body>
-    <canvas id="particle-canvas"></canvas>
 
-    <header>
-        <div class="logo">Vexaro Studios</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html" class="active">About</a>
-            <a href="index.html#projects">Projects</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+<div id="particles-js"></div>
 
-        <div class="social-links">
-            <a href="#"><i class="bx bxl-instagram"></i></a>
-            <a href="#"><i class="bx bxl-github"></i></a>
-            <a href="#"><i class="bx bx-envelope"></i></a>
-        </div>
-    </header>
+<!-- NAVBAR (gleich wie auf anderen Seiten) -->
+<header>
+    <div class="logo">Vexaro Studios</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="#projects">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
 
-    <section class="section" style="max-width: 900px; margin: 120px auto 80px auto;">
-        <h2>About Us</h2>
+<!-- TITLE -->
+<div class="page-title">About Us</div>
 
-        <div class="about-card">
-            <p>
-                Vexaro Studios is an independent creative development team focused on building 
-                modern apps, tools, utilities, and software for gamers, creators, and developers.
-            </p>
+<!-- CONTENT CARD -->
+<div class="card">
+    <h2>Who We Are</h2>
+    <p>
+        Vexaro Studios is an independent creative development team focused on building high-quality
+        applications, tools, and utilities for gamers, creators, and developers.
+    </p>
 
-            <p>
-                Our work is driven by innovation, polished design, performance, 
-                and delivering unique digital experiences.
-            </p>
+    <h2>Our Mission</h2>
+    <p>
+        To create accessible, beautiful, and powerful tools that support creativity,
+        performance, and productivity.
+    </p>
 
-            <h3>Our Mission</h3>
-            <p>
-                To create accessible, beautiful, and powerful tools that support digital creativity 
-                and gaming productivity.
-            </p>
+    <h2>Our Vision</h2>
+    <p>
+        A future where creativity and technology merge effortlessly — empowering everyone
+        to build, innovate, and create.
+    </p>
 
-            <h3>Our Vision</h3>
-            <p>
-                A future where creativity and technology merge seamlessly — 
-                empowering everyone to build, create, and innovate.
-            </p>
+    <h2>Our Team</h2>
+    <p>
+        We are a small group of designers, developers, and innovators working remotely to
+        deliver polished, modern digital experiences.
+    </p>
 
-            <h3>Our Team</h3>
-            <p>
-                Vexaro Studios consists of young developers, designers, and innovators.  
-                We collaborate remotely to bring high-quality digital experiences to life.
-            </p>
-        </div>
+    <a href="index.html" class="back">← Back to Home</a>
+</div>
 
-        <a href="index.html" class="purple-btn" style="margin-top: 30px;">← Back to Home</a>
-    </section>
+<script>
+    particlesJS.load("particles-js", "particles.json");
+</script>
 
-    <script src="script.js"></script>
 </body>
 </html>
