@@ -91,7 +91,6 @@
         filter: brightness(1.2);
     }
 
-    /* Warp Fade Animation */
     .warp-out {
         animation: warp 0.6s forwards ease-in-out;
     }
@@ -116,30 +115,40 @@
     <button class="btn" id="tpBtn">Teleport Home</button>
 </div>
 
-<!-- Teleport Sound -->
-<audio id="tpSound" src="teleport.mp3"></audio>
+<!-- FIXED Teleport Sound -->
+<audio id="tpSound" src="teleport.mp3" preload="auto"></audio>
 
 <script>
-    /* Particle Background */
     particlesJS.load("particles-js", "particles.json");
 
-    /* Teleport Button */
     const btn = document.getElementById("tpBtn");
     const box = document.getElementById("card");
     const sound = document.getElementById("tpSound");
 
-    btn.addEventListener("click", () => {
-        sound.volume = 0.5;
-        sound.play();
+    btn.addEventListener("click", async () => {
+        sound.volume = 0.6;
+
+        try {
+            sound.currentTime = 0;
+            await sound.play(); // Chrome Fix
+        } catch (e) {
+            console.log("Sound cannot play:", e);
+        }
 
         document.body.classList.add("warp-out");
 
+        /* WARTET BIS AUDIO FERTIG IST */
+        sound.onended = () => {
+            window.location.href = "index.html";
+        };
+
+        /* Falls du lieber festen Timer willst:
         setTimeout(() => {
             window.location.href = "index.html";
-        }, 500);
+        }, 900); 
+        */
     });
 
-    /* 3D Tilt */
     document.addEventListener("mousemove", (e) => {
         const x = (window.innerWidth / 2 - e.clientX) / 25;
         const y = (window.innerHeight / 2 - e.clientY) / 25;
