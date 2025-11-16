@@ -130,40 +130,65 @@
         © 2025 Vexaro Studios — All Rights Reserved.
     </footer>
 
-    <script>
-        lucide.createIcons();
-        particlesJS.load("particles-js", "particles.json");
+<script>
+    lucide.createIcons();
+    particlesJS.load("particles-js", "particles.json");
 
-        // --- DISCORD WEBHOOK SEND ---
-        document.getElementById("sendBtn").addEventListener("click", async () => {
-            const name = document.getElementById("name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const msg = document.getElementById("message").value.trim();
+    // --- DISCORD EMBED SEND ---
+    document.getElementById("sendBtn").addEventListener("click", async () => {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const msg = document.getElementById("message").value.trim();
 
-            if (!name || !email || !msg) {
-                alert("Please fill out all fields.");
-                return;
-            }
+        if (!name || !email || !msg) {
+            alert("Please fill out all fields.");
+            return;
+        }
 
-            const webhook = "https://discord.com/api/webhooks/1439416969739767882/bRSwzRqPcxxDKXaZPGy5eJjwurAapQduEAI7rP2OMw4PwPmLvOSd63K2arZZgUwUsJ0u";
+        const webhook = "https://discord.com/api/webhooks/1439416969739767882/bRSwzRqPcxxDKXaZPGy5eJjwurAapQduEAI7rP2OMw4PwPmLvOSd63K2arZZgUwUsJ0u";
 
-            const data = {
-                content: `📨 **New Contact Message**  
-**Name:** ${name}  
-**Email:** ${email}  
-**Message:**  
-${msg}`
-            };
+        const embed = {
+            username: "Vexaro Contact",
+            avatar_url: "https://i.imgur.com/eO3vYTF.png", // Optional: Kann ich dir ersetzen
+            embeds: [
+                {
+                    title: "📨 New Contact Message",
+                    color: 0x9B59FF, // LILA COLOR
+                    fields: [
+                        {
+                            name: "👤 Name",
+                            value: name,
+                            inline: false
+                        },
+                        {
+                            name: "📧 Email",
+                            value: email,
+                            inline: false
+                        },
+                        {
+                            name: "💬 Message",
+                            value: msg,
+                            inline: false
+                        }
+                    ],
+                    footer: {
+                        text: "Vexaro Studios Contact Form",
+                        icon_url: "https://i.imgur.com/eO3vYTF.png"
+                    },
+                    timestamp: new Date().toISOString()
+                }
+            ]
+        };
 
-            await fetch(webhook, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            });
-
-            alert("Message sent successfully!");
+        await fetch(webhook, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(embed)
         });
-    </script>
+
+        alert("Message sent successfully!");
+    });
+</script>
 
 </body>
 </html>
