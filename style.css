@@ -176,20 +176,6 @@ nav a:hover {
 .project-card:hover .project-icon {
     transform: scale(1.1);
 }
-.about-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 25px;
-    border-radius: 12px;
-    margin-top: 20px;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 0 20px rgba(150, 80, 255, 0.15);
-}
-
-.about-card h3 {
-    margin-top: 25px;
-    color: #c38aff;
-}
 
 /* FOOTER */
 footer {
@@ -197,4 +183,5 @@ footer {
     padding: 25px;
     color: #aaa;
 }
+
 
