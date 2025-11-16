@@ -5,23 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vexaro Studios</title>
 
-    <!-- Style -->
     <link rel="stylesheet" href="style.css" />
 
-    <!-- Particles.js -->
+    <!-- Particles -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Intro Animation -->
+    <script defer src="intro.js"></script>
 </head>
 
 <body>
-    <!-- Particles Background -->
+
+    <!-- INTRO / WELCOME SCREEN -->
+    <div id="intro-screen">
+        <img src="logo.png" class="intro-logo">
+        <h1 class="intro-title">VEXARO STUDIOS</h1>
+    </div>
+
+    <!-- PARTICLES BACKGROUND -->
     <div id="particles-js"></div>
 
-    <!-- Navigation -->
+    <!-- NAVIGATION -->
     <header>
         <div class="logo">Vexaro Studios</div>
+
         <nav>
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -36,32 +46,29 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <!-- HERO SECTION -->
+    <section id="home" class="hero fade-section">
         <div class="hero-content">
-
-            <!-- LOGO WORKING -->
             <img src="logo.png" class="hero-logo" />
+            <h1 class="glow-title">We Bring Ideas to Life.</h1>
+            <p class="hero-subtitle">Modern apps, tools, and games — crafted by creative minds.</p>
 
-            <h1>We Bring Ideas to Life.</h1>
-            <p>Modern apps, tools, and games — crafted by creative minds.</p>
             <a href="#about" class="btn">Learn More</a>
         </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="section">
-        <h2>About Us</h2>
+    <!-- ABOUT -->
+    <section id="about" class="section fade-section">
+        <h2 class="section-title">About Us</h2>
         <p>
             Vexaro Studios builds modern applications, tools, and software for gamers
-            and developers. Our focus lies on technology, design, and innovation —
-            transforming ideas into real digital experiences.
+            and developers, focusing on technology, design, and innovation.
         </p>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="section">
-        <h2>Projects</h2>
+    <!-- PROJECTS -->
+    <section id="projects" class="section fade-section">
+        <h2 class="section-title">Projects</h2>
 
         <div class="project-grid">
 
@@ -83,26 +90,20 @@
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section">
-        <h2>Contact</h2>
-        <p>Want to contact us? A contact form will be available soon.</p>
+    <!-- CONTACT -->
+    <section id="contact" class="section fade-section">
+        <h2 class="section-title">Contact</h2>
+        <p>A contact form will be available soon.</p>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
         <p>© 2025 Vexaro Studios — All Rights Reserved.</p>
     </footer>
 
-    <!-- SCRIPTS -->
     <script>
-        // Load Lucide icons
         lucide.createIcons();
-
-        // Load Particles.js with your file
-        particlesJS.load("particles-js", "particles.json", function () {
-            console.log("Particles.js background loaded successfully.");
-        });
+        particlesJS.load("particles-js", "particles.json");
     </script>
 </body>
 </html>
