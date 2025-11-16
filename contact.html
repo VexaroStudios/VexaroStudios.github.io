@@ -145,46 +145,34 @@ document.getElementById("sendBtn").addEventListener("click", async () => {
         return;
     }
 
-    const webhook = "DEIN_WEBHOOK_LINK";
+    const webhook = "https://discord.com/api/webhooks/1439416969739767882/bRSwzRqPcxxDKXaZPGy5eJjwurAapQduEAI7rP2OMw4PwPmLvOSd63K2arZZgUwUsJ0u";
 
-    const data = {
-        username: "Contact App",
-        avatar_url: "https://i.imgur.com/eO3vYTF.png",
-        embeds: [
-            {
-                title: "📨 New Contact Message",
-                color: 5793266,
-                thumbnail: {
-                    url: "https://i.imgur.com/eO3vYTF.png"
-                },
-                fields: [
-                    {
-                        name: "👤 Name",
-                        value: name
-                    },
-                    {
-                        name: "📧 Email",
-                        value: email
-                    },
-                    {
-                        name: "💬 Message",
-                        value: msg
-                    }
-                ],
-                footer: {
-                    text: "Vexaro Studios Contact System",
-                    icon_url: "https://i.imgur.com/eO3vYTF.png"
-                },
-                timestamp: new Date()
+const embed = {
+    embeds: [
+        {
+            title: "📨 New Contact Message",
+            color: 0x9c5bff, // Lila
+            thumbnail: {
+                url: "https://raw.githubusercontent.com/VexaroStudios/VexaroStudios.github.io/main/logo.png"
+            },
+            fields: [
+                { name: "Name", value: name, inline: true },
+                { name: "Email", value: email, inline: true },
+                { name: "Message", value: msg }
+            ],
+            footer: {
+                text: "Vexaro Studios Contact",
+                icon_url: "https://raw.githubusercontent.com/VexaroStudios/VexaroStudios.github.io/main/logo.png"
             }
-        ]
-    };
+        }
+    ]
+};
 
-    await fetch(webhook, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    });
+await fetch(webhook, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(embed)
+});
 
     alert("Message sent successfully!");
 });
