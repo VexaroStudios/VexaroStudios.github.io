@@ -10,7 +10,6 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
     <style>
-        /* --- CONTACT PAGE STYLING FIX --- */
 
         .contact-container {
             max-width: 600px;
@@ -39,7 +38,8 @@
         }
 
         .contact-container input,
-        .contact-container textarea {
+        .contact-container textarea,
+        .contact-container select {
             width: 100%;
             padding: 12px 14px;
             margin-top: 6px;
@@ -49,11 +49,6 @@
             background: rgba(15, 15, 30, 0.85);
             color: #e9d8ff;
             font-size: 1rem;
-        }
-
-        .contact-container input::placeholder,
-        .contact-container textarea::placeholder {
-            color: #9a78d0;
         }
 
         .contact-container textarea {
@@ -78,21 +73,19 @@
             transform: scale(1.03);
         }
 
-        /* center copyright */
         footer {
             text-align: center;
             margin-top: 50px;
             color: #b79dff;
         }
+
     </style>
 </head>
 
 <body>
 
-    <!-- PARTICLES -->
     <div id="particles-js"></div>
 
-    <!-- HEADER -->
     <header>
         <div class="logo">Vexaro Studios</div>
         <nav>
@@ -109,10 +102,16 @@
         </div>
     </header>
 
-    <!-- CONTACT FORM -->
     <div class="contact-container">
         <h2>Contact Us</h2>
-        <p>Got questions, ideas, or feedback? Send us a message anytime. (We Messege you on Email Back.)</p>
+        <p>Got questions, ideas, or feedback? Send us a message anytime.</p>
+
+        <label>Topic</label>
+        <select id="topic">
+            <option value="Feedback">Feedback</option>
+            <option value="Idea">Idea</option>
+            <option value="Question">Question</option>
+        </select>
 
         <label>Name</label>
         <input type="text" id="name" placeholder="Your name">
@@ -130,15 +129,17 @@
         © 2025 Vexaro Studios — All Rights Reserved.
     </footer>
 
+
 <script>
     lucide.createIcons();
     particlesJS.load("particles-js", "particles.json");
 
-    // --- DISCORD EMBED SEND ---
 document.getElementById("sendBtn").addEventListener("click", async () => {
-    const name = document.getElementById("name").value.trim();
+
+    const topic = document.getElementById("topic").value;
+    const name  = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
-    const msg = document.getElementById("message").value.trim();
+    const msg   = document.getElementById("message").value.trim();
 
     if (!name || !email || !msg) {
         alert("Please fill out all fields.");
@@ -147,36 +148,37 @@ document.getElementById("sendBtn").addEventListener("click", async () => {
 
     const webhook = "https://discord.com/api/webhooks/1439416969739767882/bRSwzRqPcxxDKXaZPGy5eJjwurAapQduEAI7rP2OMw4PwPmLvOSd63K2arZZgUwUsJ0u";
 
-const embed = {
-    embeds: [
-        {
-            title: "📨 New Contact Message",
-            color: 0x9c5bff,
-            thumbnail: {
-                url: "https://raw.githubusercontent.com/VexaroStudios/VexaroStudios.github.io/main/logo.png"
-            },
-            fields: [
-                { name: "Name", value: name, inline: true },
-                { name: "Email", value: email, inline: true },
-                { name: "Message", value: msg }
-            ],
-            footer: {
-                text: "Vexaro Studios Contact",
-                icon_url: "https://raw.githubusercontent.com/VexaroStudios/VexaroStudios.github.io/main/logo.png"
+    const embed = {
+        embeds: [
+            {
+                title: `📨 New ${topic}`,
+                color: 0x9c5bff,
+                thumbnail: {
+                    url: "https://raw.githubusercontent.com/VexaroStudios/VexaroStudios.github.io/main/logo.png"
+                },
+                fields: [
+                    { name: "Type", value: topic, inline: true },
+                    { name: "Name", value: name, inline: true },
+                    { name: "Email", value: email, inline: true },
+                    { name: "Message", value: msg }
+                ],
+                footer: {
+                    text: "Vexaro Studios Contact",
+                    icon_url: "https://raw.githubusercontent.com/VexaroStudios/VexaroStudios.github.io/main/logo.png"
+                }
             }
-        }
-    ]
-};
+        ]
+    };
 
-await fetch("https://corsproxy.io/?" + encodeURIComponent(webhook), {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(embed)
-});
+    await fetch("https://corsproxy.io/?" + encodeURIComponent(webhook), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(embed)
+    });
 
     alert("Message sent successfully!");
 });
-    
+
 </script>
 
 </body>
