@@ -6,12 +6,85 @@
     <title>Contact - Vexaro Studios</title>
 
     <link rel="stylesheet" href="style.css" />
-
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Particles Background -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+    <style>
+        /* --- CONTACT PAGE STYLING FIX --- */
+
+        .contact-container {
+            max-width: 600px;
+            margin: 130px auto;
+            padding: 25px;
+            background: rgba(20, 20, 35, 0.6);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 0 25px rgba(140, 82, 255, 0.25);
+        }
+
+        .contact-container h2 {
+            color: #c39bff;
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        .contact-container p {
+            color: #cfcfcf;
+            margin-bottom: 20px;
+        }
+
+        .contact-container label {
+            color: #d7b6ff;
+            font-size: 0.9rem;
+        }
+
+        .contact-container input,
+        .contact-container textarea {
+            width: 100%;
+            padding: 12px 14px;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            border: 1px solid #723cff;
+            background: rgba(15, 15, 30, 0.85);
+            color: #e9d8ff;
+            font-size: 1rem;
+        }
+
+        .contact-container input::placeholder,
+        .contact-container textarea::placeholder {
+            color: #9a78d0;
+        }
+
+        .contact-container textarea {
+            height: 130px;
+            resize: none;
+        }
+
+        #sendBtn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: linear-gradient(135deg, #9c5bff, #7d3cff);
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        #sendBtn:hover {
+            opacity: 0.85;
+            transform: scale(1.03);
+        }
+
+        /* center copyright */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #b79dff;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,37 +109,61 @@
         </div>
     </header>
 
-    <!-- CONTACT CONTENT -->
-    <section class="section contact-section">
+    <!-- CONTACT FORM -->
+    <div class="contact-container">
         <h2>Contact Us</h2>
-        <p class="contact-sub">Got questions or ideas? Feel free to message us anytime.</p>
+        <p>Got questions, ideas, or feedback? Send us a message anytime.</p>
 
-        <form class="contact-form">
+        <label>Name</label>
+        <input type="text" id="name" placeholder="Your name">
 
-            <div class="input-group">
-                <label>Name</label>
-                <input type="text" placeholder="Your name" required />
-            </div>
+        <label>Email</label>
+        <input type="email" id="email" placeholder="your@email.com">
 
-            <div class="input-group">
-                <label>Email</label>
-                <input type="email" placeholder="your@email.com" required />
-            </div>
+        <label>Message</label>
+        <textarea id="message" placeholder="Write your message here..."></textarea>
 
-            <div class="input-group">
-                <label>Message</label>
-                <textarea placeholder="Write your message here..." required></textarea>
-            </div>
-
-            <button type="submit" class="btn contact-btn">Send Message</button>
-
-        </form>
-    </section>
+        <button id="sendBtn">Send Message</button>
+    </div>
 
     <footer>
-        <p>© 2025 Vexaro Studios — All Rights Reserved.</p>
+        © 2025 Vexaro Studios — All Rights Reserved.
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+        particlesJS.load("particles-js", "particles.json");
+
+        // --- DISCORD WEBHOOK SEND ---
+        document.getElementById("sendBtn").addEventListener("click", async () => {
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const msg = document.getElementById("message").value.trim();
+
+            if (!name || !email || !msg) {
+                alert("Please fill out all fields.");
+                return;
+            }
+
+            const webhook = "https://discord.com/api/webhooks/1439416969739767882/bRSwzRqPcxxDKXaZPGy5eJjwurAapQduEAI7rP2OMw4PwPmLvOSd63K2arZZgUwUsJ0u";
+
+            const data = {
+                content: `📨 **New Contact Message**  
+**Name:** ${name}  
+**Email:** ${email}  
+**Message:**  
+${msg}`
+            };
+
+            await fetch(webhook, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            alert("Message sent successfully!");
+        });
+    </script>
+
 </body>
 </html>
