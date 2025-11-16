@@ -4,182 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Vexaro Studios</title>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
-
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            background: #070712;
-            font-family: "Inter", sans-serif;
-            color: #d4baff;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* === PULSE GLOW BACKGROUND WAVES === */
-        body::before {
-            content: "";
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center,
-                rgba(157, 91, 255, 0.25),
-                rgba(80, 30, 150, 0.1),
-                transparent 70%
-            );
-            animation: pulse 6s ease-in-out infinite alternate;
-            z-index: -3;
-        }
-
-        @keyframes pulse {
-            from { transform: scale(1); opacity: 1; }
-            to   { transform: scale(1.2); opacity: 0.9;}
-        }
-
-        /* === FLOATING PARTICLE LAYER === */
-        .floating-particles div {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: rgba(160, 100, 255, 0.7);
-            border-radius: 50%;
-            filter: blur(1.5px);
-            animation: float 6s infinite ease-in-out;
-        }
-
-        @keyframes float {
-            0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0.8; }
-            50%  { transform: translateY(-40px) translateX(15px) scale(1.3); opacity: 1; }
-            100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.8; }
-        }
-
-        /* === MAIN CARD === */
-        .container {
-            text-align: center;
-            padding: 35px;
-            background: rgba(20, 20, 35, 0.5);
-            backdrop-filter: blur(14px);
-            border-radius: 22px;
-            box-shadow: 0 0 35px rgba(150, 80, 255, 0.45);
-            max-width: 500px;
-            width: 85%;
-            transition: transform 0.15s ease-out;
-            border: 2px solid rgba(150, 80, 255, 0.5);
-            animation: borderPulse 3s infinite alternate ease-in-out;
-        }
-
-        @keyframes borderPulse {
-            from { border-color: rgba(150, 80, 255, 0.5); }
-            to   { border-color: rgba(220, 160, 255, 0.9); }
-        }
-
-        /* === FLOATING LOGO === */
-        .logo {
-            width: 120px;
-            margin-bottom: 12px;
-            filter: drop-shadow(0 0 18px #a066ff);
-            animation: logoFloat 3.5s ease-in-out infinite;
-        }
-
-        @keyframes logoFloat {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-        }
-
-        h1 {
-            font-size: 4rem;
-            margin: 0;
-            color: #e6d5ff;
-            text-shadow: 0 0 25px rgba(160, 100, 255, 0.8);
-            animation: glow 2s infinite alternate ease-in-out;
-        }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 12px #9c5bff; }
-            to   { text-shadow: 0 0 30px #d7bbff; }
-        }
-
-        p {
-            font-size: 1.1rem;
-            color: #d4c0ff;
-            margin-top: -8px;
-        }
-
-        /* === TELEPORT HOME BUTTON === */
-        a {
-            display: inline-block;
-            margin-top: 22px;
-            padding: 13px 30px;
-            background: linear-gradient(135deg, #9c5bff, #7d3cff);
-            color: white;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 1rem;
-            box-shadow: 0 0 15px rgba(160, 100, 255, 0.5);
-            transition: 0.22s ease-out;
-        }
-
-        a:hover {
-            transform: scale(1.08) rotate(1deg);
-            box-shadow: 0 0 28px rgba(160, 100, 255, 0.6);
-        }
-
-        /* === PARTICLES.JS CANVAS === */
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-        }
-    </style>
-
+    <link rel="stylesheet" href="404.css" />
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 
 <body>
 
-<!-- Particles.js background -->
-<div id="particles-js"></div>
+    <!-- BACKGROUND PARTICLES -->
+    <div id="particles-js"></div>
 
-<!-- Extra floating particles -->
-<div class="floating-particles">
-    <div style="top:20%; left:18%; animation-delay:0s;"></div>
-    <div style="top:60%; left:75%; animation-delay:1s;"></div>
-    <div style="top:40%; left:40%; animation-delay:2s;"></div>
-    <div style="top:75%; left:25%; animation-delay:1.5s;"></div>
-    <div style="top:30%; left:85%; animation-delay:0.7s;"></div>
-</div>
+    <!-- FOREGROUND SPARKS -->
+    <canvas id="spark-canvas"></canvas>
 
-<!-- MAIN CARD -->
-<div class="container" id="tiltCard">
-    <img src="logo.png" class="logo">
+    <!-- MAIN BOX -->
+    <div class="center-box">
 
-    <h1>404</h1>
-    <p>The page you're looking for doesn’t exist.</p>
+        <img class="logo" src="logo.png">
 
-    <a href="index.html">Teleport Home</a>
-</div>
+        <h1 class="glitch" data-text="404">404</h1>
+        <p class="subtitle">The page you're looking for doesn't exist.</p>
 
-<script>
-    // ParticlesJS load
-    particlesJS.load("particles-js", "particles.json");
+        <a href="index.html" class="btn-teleport">
+            <span>Teleport Home</span>
+        </a>
 
-    // Parallax tilt effect
-    const card = document.getElementById("tiltCard");
-    document.addEventListener("mousemove", (e) => {
-        const x = (window.innerWidth / 2 - e.clientX) / 25;
-        const y = (window.innerHeight / 2 - e.clientY) / 25;
-        card.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-    });
-</script>
+    </div>
 
+<script src="404.js"></script>
 </body>
 </html>
