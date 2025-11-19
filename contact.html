@@ -111,6 +111,7 @@
             <option value="Feedback">Feedback</option>
             <option value="Idea">Idea</option>
             <option value="Question">Question</option>
+            <option value="Apply">Apply now as a Part of Our Team (German & English supported)</option>
         </select>
 
         <label>Name</label>
@@ -134,50 +135,75 @@
     lucide.createIcons();
     particlesJS.load("particles-js", "particles.json");
 
-document.getElementById("sendBtn").addEventListener("click", async () => {
+    const cooldownHours = 3;
+    const cooldownKey = "contactCooldown";
 
-    const topic = document.getElementById("topic").value;
-    const name  = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const msg   = document.getElementById("message").value.trim();
+    function checkCooldown() {
+        const last = localStorage.getItem(cooldownKey);
+        if (!last) return false;
 
-    if (!name || !email || !msg) {
-        alert("Please fill out all fields.");
-        return;
+        const lastTime = parseInt(last);
+        const now = Date.now();
+
+        const hoursPassed = (now - lastTime) / (1000 * 60 * 60);
+
+        if (hoursPassed < cooldownHours) {
+            const remaining = (cooldownHours - hoursPassed).toFixed(1);
+            alert("You can send another message in " + remaining + " hours.");
+            return true;
+        }
+
+        return false;
     }
 
-    const webhook = "https://discord.com/api/webhooks/1439416969739767882/bRSwzRqPcxxDKXaZPGy5eJjwurAapQduEAI7rP2OMw4PwPmLvOSd63K2arZZgUwUsJ0u";
+    document.getElementById("sendBtn").addEventListener("click", async () => {
 
-    const embed = {
-        embeds: [
-            {
-                title: `📨 New ${topic}`,
-                color: 0x9c5bff,
-                thumbnail: {
-                    url: "https://raw.githubusercontent.com/VexaroStudios/VexaroStudios.github.io/main/logo.png"
-                },
-                fields: [
-                    { name: "Type", value: topic, inline: true },
-                    { name: "Name", value: name, inline: true },
-                    { name: "Email", value: email, inline: true },
-                    { name: "Message", value: msg }
-                ],
-                footer: {
-                    text: "Vexaro Studios Contact",
-                    icon_url: "https://raw.githubusercontent.com/VexaroStudios/VexaroStudios.github.io/main/logo.png"
+        if (checkCooldown()) return;
+
+        const topic = document.getElementById("topic").value;
+        const name  = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const msg   = document.getElementById("message").value.trim();
+
+        if (!name || !email || !msg) {
+            alert("Please fill out all fields.");
+            return;
+        }
+
+        const webhook = "https://discord.com/api/webhooks/1439416969739767882/bRSwzRqPcxxDKXaZPGy5eJjwurAapQduEAI7rP2OMw4PwPmLvOSd63K2arZZgUwUsJ0u";
+
+        const embed = {
+            embeds: [
+                {
+                    title: `📨 New ${topic}`,
+                    color: 0x9c5bff,
+                    thumbnail: {
+                        url: "https://raw.githubusercontent.com/VexaroStudios/VexaroStudios.github.io/main/logo.png"
+                    },
+                    fields: [
+                        { name: "Type", value: topic, inline: true },
+                        { name: "Name", value: name, inline: true },
+                        { name: "Email", value: email, inline: true },
+                        { name: "Message", value: msg }
+                    ],
+                    footer: {
+                        text: "Vexaro Studios Contact",
+                        icon_url: "https://raw.githubusercontent.com/VexaroStudios/VexaroStudios.github.io/main/logo.png"
+                    }
                 }
-            }
-        ]
-    };
+            ]
+        };
 
-    await fetch("https://corsproxy.io/?" + encodeURIComponent(webhook), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(embed)
+        await fetch("https://corsproxy.io/?" + encodeURIComponent(webhook), {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(embed)
+        });
+
+        alert("Message sent successfully!");
+
+        localStorage.setItem(cooldownKey, Date.now());
     });
-
-    alert("Message sent successfully!");
-});
 
 </script>
 
