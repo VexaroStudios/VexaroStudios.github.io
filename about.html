@@ -8,6 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
+<!-- Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- Particles -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
 <style>
@@ -75,16 +79,32 @@
 
 <div id="particles-js"></div>
 
-<!-- NAVBAR -->
-<header>
-    <div class="logo">Vexaro Studios</div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active">About</a>
-        <a href="index.html#projects">Projects</a>
-        <a href="contact.html">Contact</a>
+<!-- SIDEBAR TOGGLE BUTTON -->
+<div class="sidebar-toggle" onclick="toggleSidebar()">
+    <i data-lucide="menu"></i>
+</div>
+
+<!-- SIDEBAR -->
+<aside id="sidebar">
+    <div class="sidebar-logo">
+        <img src="logo.png" />
+        <h2>Vexaro</h2>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a href="index.html"><i data-lucide="home"></i> Home</a>
+        <a href="about.html" class="active"><i data-lucide="info"></i> About</a>
+        <a href="index.html#projects"><i data-lucide="folder"></i> Projects</a>
+        <a href="contact.html"><i data-lucide="mail"></i> Contact</a>
     </nav>
-</header>
+
+    <div class="sidebar-socials">
+        <a href="#"><img src="discord.png" width="20"></a>
+        <a href="https://github.com/VexaroStudios"><i data-lucide="github"></i></a>
+        <a href="#"><i data-lucide="instagram"></i></a>
+        <a href="https://x.com/vexarostudios"><i data-lucide="twitter"></i></a>
+    </div>
+</aside>
 
 <!-- TITLE -->
 <div class="page-title">About Us</div>
@@ -118,8 +138,11 @@
     <a href="contact.html" class="back">Apply now!</a>
 </div>
 
+<script src="script.js"></script>
+
 <script>
     particlesJS.load("particles-js", "particles.json");
+    lucide.createIcons();
 </script>
 
 </body>
