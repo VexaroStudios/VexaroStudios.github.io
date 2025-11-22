@@ -10,10 +10,26 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
     <style>
+        body {
+            margin: 0;
+            background: #080110;
+            font-family: "Poppins", sans-serif;
+            overflow-x: hidden;
+            color: white;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
 
         .contact-container {
             max-width: 600px;
-            margin: 130px auto;
+            margin: 150px auto;
             padding: 25px;
             background: rgba(20, 20, 35, 0.6);
             border-radius: 16px;
@@ -78,7 +94,6 @@
             margin-top: 50px;
             color: #b79dff;
         }
-
     </style>
 </head>
 
@@ -86,25 +101,34 @@
 
     <div id="particles-js"></div>
 
-    <header>
-        <div class="logo">Vexaro Studios</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="index.html#projects">Projects</a>
-            <a class="active" href="contact.html">Contact</a>
+    <!-- SIDEBAR TOGGLE BUTTON -->
+    <div class="sidebar-toggle" onclick="toggleSidebar()">
+        <i data-lucide="menu"></i>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside id="sidebar">
+        <div class="sidebar-logo">
+            <img src="logo.png" />
+            <h2>Vexaro</h2>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="index.html"><i data-lucide="home"></i> Home</a>
+            <a href="about.html"><i data-lucide="info"></i> About</a>
+            <a href="index.html#projects"><i data-lucide="folder"></i> Projects</a>
+            <a class="active" href="contact.html"><i data-lucide="mail"></i> Contact</a>
         </nav>
 
-        <div class="socials">
-                        <a href="coming soon!">
-  <img src="discord.png" alt="Discord" width="24" height="24">
-</a>
-            <a href="https://github.com/VexaroStudios/VexaroStudios.github.io"><i data-lucide="github"></i></a>
-            <a href="Coming Soon"><i data-lucide="instagram"></i></a>
-            <a href="contact.html"><i data-lucide="mail"></i></a>
+        <div class="sidebar-socials">
+            <a href="#"><img src="discord.png" width="20"></a>
+            <a href="https://github.com/VexaroStudios"><i data-lucide="github"></i></a>
+            <a href="#"><i data-lucide="instagram"></i></a>
+            <a href="https://x.com/vexarostudios"><i data-lucide="twitter"></i></a>
         </div>
-    </header>
+    </aside>
 
+    <!-- CONTACT FORM -->
     <div class="contact-container">
         <h2>Contact Us</h2>
         <p>Got questions, ideas, or feedback? Send us a message anytime.</p>
@@ -133,6 +157,7 @@
         © 2025 Vexaro Studios — All Rights Reserved.
     </footer>
 
+<script src="script.js"></script>
 
 <script>
     lucide.createIcons();
@@ -144,18 +169,11 @@
     function checkCooldown() {
         const last = localStorage.getItem(cooldownKey);
         if (!last) return false;
-
-        const lastTime = parseInt(last);
-        const now = Date.now();
-
-        const hoursPassed = (now - lastTime) / (1000 * 60 * 60);
-
+        const hoursPassed = (Date.now() - parseInt(last)) / 3600000;
         if (hoursPassed < cooldownHours) {
-            const remaining = (cooldownHours - hoursPassed).toFixed(1);
-            alert("You can send another message in " + remaining + " hours.");
+            alert(`You can send another message in ${(cooldownHours - hoursPassed).toFixed(1)} hours.`);
             return true;
         }
-
         return false;
     }
 
@@ -180,9 +198,7 @@
                 {
                     title: `📨 New ${topic}`,
                     color: 0x9c5bff,
-                    thumbnail: {
-                        url: "https://raw.githubusercontent.com/VexaroStudios/VexaroStudios.github.io/main/logo.png"
-                    },
+                    thumbnail: { url: "https://raw.githubusercontent.com/VexaroStudios/VexaroStudios.github.io/main/logo.png" },
                     fields: [
                         { name: "Type", value: topic, inline: true },
                         { name: "Name", value: name, inline: true },
@@ -204,7 +220,6 @@
         });
 
         alert("Message sent successfully!");
-
         localStorage.setItem(cooldownKey, Date.now());
     });
 
