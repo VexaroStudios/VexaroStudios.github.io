@@ -183,5 +183,106 @@ footer {
     padding: 25px;
     color: #aaa;
 }
+/* SIDEBAR GENERAL */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 260px;
+    height: 100vh;
+    background: rgba(15, 10, 25, 0.8);
+    backdrop-filter: blur(12px);
+    border-right: 1px solid #b47bff44;
+    box-shadow: 0 0 25px #b47bff33;
+    transition: 0.35s ease;
+    padding: 30px 20px;
+    z-index: 999;
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+/* SIDEBAR LOGO */
+.sidebar-logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sidebar-logo img {
+    width: 85px;
+    filter: drop-shadow(0 0 12px #b47bff);
+}
+
+.sidebar-logo h2 {
+    margin-top: 10px;
+    color: #cfa8ff;
+    font-size: 22px;
+    text-shadow: 0 0 10px #b47bff;
+}
+
+/* NAVIGATION */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #ddd;
+    font-size: 18px;
+    padding: 10px 8px;
+    border-radius: 8px;
+    transition: 0.25s;
+}
+
+.sidebar-nav a:hover {
+    background: #b47bff33;
+    color: #cfa8ff;
+}
+
+/* SOCIALS */
+.sidebar-socials {
+    position: absolute;
+    bottom: 25px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.sidebar-socials a {
+    color: #cfa8ff;
+    transition: .25s;
+}
+
+.sidebar-socials a:hover {
+    color: white;
+}
+
+/* TOGGLE BUTTON (Burger Menu) */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(15, 10, 25, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    border: 1px solid #b47bff44;
+}
+
+.sidebar-toggle i {
+    color: #cfa8ff;
+    width: 26px;
+    height: 26px;
+}
+
 
 
