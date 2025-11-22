@@ -27,24 +27,32 @@
 
     <!-- HEADER -->
     <header>
-        <div class="logo">Vexaro Studios</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="about.html">About</a>
-            <a href="#projects">Projects</a>
-            <!-- CONTACT -->
-            <a href="contact.html">Contact</a>
-        </nav>
+<!-- SIDEBAR TOGGLE BUTTON -->
+<div class="sidebar-toggle" onclick="toggleSidebar()">
+    <i data-lucide="menu"></i>
+</div>
 
-        <div class="socials">
-            <a href="coming soon!">
-  <img src="discord.png" alt="Discord" width="24" height="24">
-</a>
-            <a href="https://github.com/VexaroStudios/VexaroStudios.github.io"><i data-lucide="github"></i></a>
-            <a href="Coming soon"><i data-lucide="instagram"></i></a>
-            <a href="https://x.com/vexarostudios"><i data-lucide="twitter"></i></a>
-            <a href="contact.html"><i data-lucide="mail"></i></a>
-        </div>
+<!-- SIDEBAR -->
+<aside id="sidebar">
+    <div class="sidebar-logo">
+        <img src="logo.png" />
+        <h2>Vexaro</h2>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a href="#home"><i data-lucide="home"></i> Home</a>
+        <a href="about.html"><i data-lucide="info"></i> About</a>
+        <a href="#projects"><i data-lucide="folder"></i> Projects</a>
+        <a href="contact.html"><i data-lucide="mail"></i> Contact</a>
+    </nav>
+
+    <div class="sidebar-socials">
+        <a href="#"><img src="discord.png" width="20"></a>
+        <a href="https://github.com/VexaroStudios"><i data-lucide="github"></i></a>
+        <a href="#"><i data-lucide="instagram"></i></a>
+        <a href="https://x.com/vexarostudios"><i data-lucide="twitter"></i></a>
+    </div>
+</aside>
     </header>
 
     <!-- HERO -->
@@ -117,6 +125,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
