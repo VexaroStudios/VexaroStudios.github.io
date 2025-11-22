@@ -70,6 +70,23 @@
 </head>
 <body>
 
+<!-- SIDEBAR -->
+<div id="sidebar" class="sidebar">
+    <h2 class="sidebar-title">Vexaro</h2>
+
+    <a href="index.html">🏠 Main Page</a>
+    <a href="projekte.html">📁 Projekte</a>
+    <a href="socials.html">🌐 Socials</a>
+    <a href="lume.html">💡 Lume Stats</a>
+
+    <div class="sidebar-footer">
+        <p>© 2025 Vexaro</p>
+    </div>
+</div>
+
+<!-- SIDEBAR BUTTON -->
+<div class="menu-btn" onclick="toggleSidebar()">☰</div>
+
 <div id="particles-js"></div>
 
 <div class="container">
@@ -107,7 +124,13 @@
 </div>
 
 <script>
-    particlesJS.load("particles-js", "particles.json");
+// Sidebar toggle
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("open");
+}
+
+// Particles
+particlesJS.load("particles-js", "particles.json");
 </script>
 
 </body>
