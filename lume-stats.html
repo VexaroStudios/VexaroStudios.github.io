@@ -27,107 +27,105 @@
         z-index: -1;
     }
 
-    /* CLEANER HEADER */
-    header {
-        padding: 80px 20px 40px;
-        max-width: 950px;
-        margin: 0 auto;
-        text-align: center;
+    /* ----- HEADER SECTION ----- */
+    .lume-header {
+        max-width: 1100px;
+        margin: 140px auto 80px;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        padding: 40px;
+        border-radius: 18px;
+        background: rgba(20,0,35,0.45);
+        border: 2px solid rgba(160,80,255,0.4);
+        box-shadow: 0 0 25px #8f39ff;
+        backdrop-filter: blur(12px);
     }
 
-    .logo-large {
-        width: 120px;
-        margin-bottom: 15px;
-        filter: drop-shadow(0 0 14px #a060ff);
+    .lume-logo {
+        width: 140px;
+        border-radius: 12px;
+        box-shadow: 0 0 25px #8f39ff;
     }
 
-    h1 {
+    .lume-header-text h1 {
         font-size: 48px;
-        margin: 10px 0 15px;
-        color: #e7ccff;
-        font-weight: 700;
+        line-height: 1.2;
+        margin: 0;
+        color: #e0c3ff;
         text-shadow: 0 0 15px #b66bff;
     }
 
-    .desc {
-        max-width: 700px;
-        margin: 0 auto;
-        opacity: 0.85;
-        font-size: 17px;
-        line-height: 1.6;
-        color: #d8c3ff;
-    }
-
-    .main-button {
-        margin-top: 32px;
-        display: inline-block;
-        padding: 13px 32px;
-        border-radius: 14px;
-        font-size: 18px;
-        background: linear-gradient(135deg, #b066ff, #7a30ff);
-        box-shadow: 0 0 18px #7a2aff;
-        color: white;
-        text-decoration: none;
-        transition: 0.25s;
-    }
-
-    .main-button:hover {
-        transform: scale(1.08);
-        filter: brightness(1.15);
-        box-shadow: 0 0 24px #b066ff;
-    }
-
-    /* CLEAN SECTIONS */
-    .section {
-        max-width: 850px;
-        margin: 60px auto;
-        padding: 32px 40px;
-        background: rgba(25, 0, 40, 0.42);
-        border: 2px solid rgba(155, 75, 255, 0.25);
-        border-radius: 20px;
-        box-shadow: 0 0 22px rgba(140, 60, 255, 0.35);
-        backdrop-filter: blur(10px);
-    }
-
-    h2 {
-        margin: 0 0 18px;
-        font-size: 28px;
-        color: #e0c3ff;
-        text-shadow: 0 0 12px #b66bff;
-    }
-
-    .feature-list li {
-        font-size: 17px;
-        margin-bottom: 8px;
+    .lume-header-text p {
+        margin-top: 12px;
+        color: #d9c8ff;
         opacity: 0.9;
     }
 
-    /* DOWNLOAD BUTTON AT BOTTOM */
+    .header-btn {
+        display: inline-block;
+        padding: 14px 28px;
+        margin-top: 20px;
+        border-radius: 12px;
+        font-size: 18px;
+        text-decoration: none;
+        color: white;
+        background: linear-gradient(135deg, #b066ff, #7a30ff);
+        box-shadow: 0 0 20px #7c2aff;
+        transition: 0.2s;
+    }
+
+    .header-btn:hover {
+        transform: scale(1.05);
+    }
+
+    /* ----- STATIC SECTION BOXES ----- */
+    .section-box {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 35px;
+        border-radius: 18px;
+        background: rgba(20,0,35,0.45);
+        border: 2px solid rgba(160,80,255,0.35);
+        box-shadow: 0 0 20px #8f39ff;
+        backdrop-filter: blur(12px);
+    }
+
+    .section-box h2 {
+        margin: 0 0 20px;
+        color: #e0c3ff;
+        text-shadow: 0 0 10px #b66bff;
+        font-size: 28px;
+    }
+
+    .feature-list li {
+        margin-bottom: 8px;
+        font-size: 18px;
+    }
+
+    /* ----- DOWNLOAD BUTTON ----- */
     .download-btn {
         display: block;
         width: fit-content;
-        margin: 50px auto 60px auto;
-        padding: 14px 35px;
+        margin: 60px auto 40px;
+        padding: 16px 40px;
         border-radius: 14px;
         font-size: 20px;
         color: white;
         background: linear-gradient(135deg, #b066ff, #7a30ff);
         text-decoration: none;
-        box-shadow: 0 0 20px #7c2aff;
-        transition: 0.3s;
+        box-shadow: 0 0 25px #7c2aff;
+        transition: 0.2s;
     }
 
     .download-btn:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 35px #ad4bff;
-        filter: brightness(1.2);
+        transform: scale(1.05);
     }
 
     footer {
         text-align: center;
         padding: 40px;
-        opacity: 0.6;
-        font-size: 14px;
+        opacity: 0.7;
     }
 </style>
 
@@ -136,7 +134,7 @@
 
 <div id="particles-js"></div>
 
-<!-- MENU ICON -->
+<!-- SIDEBAR BUTTON -->
 <div class="sidebar-toggle" onclick="toggleSidebar()">
     <i data-lucide="menu"></i>
 </div>
@@ -150,22 +148,37 @@
 
     <nav class="sidebar-nav">
         <a href="index.html"><i data-lucide="home"></i> Home</a>
+        <a href="about.html"><i data-lucide="info"></i> About</a>
         <a href="projects.html"><i data-lucide="folder"></i> Projects</a>
         <a href="contact.html"><i data-lucide="mail"></i> Contact</a>
     </nav>
+
+    <div class="sidebar-socials">
+        <a href="https://discord.gg/"><img src="discord.png" width="20"></a>
+        <a href="https://github.com/VexaroStudios"><i data-lucide="github"></i></a>
+        <a href="#"><i data-lucide="instagram"></i></a>
+        <a href="https://x.com/vexarostudios"><i data-lucide="twitter"></i></a>
+    </div>
 </aside>
 
-<header>
-    <img src="lume.png" class="logo-large">
-    <h1>Lume Stats (NEVER COMING.)</h1>
-    <p class="desc">
-        Lume Stats is a modern PC performance monitoring tool designed for gamers, developers, and streamers. Track FPS, CPU & GPU usage, temperature, RAM, network usage, and more — all in an elegant, customizable interface.
-    </p>
+<!-- MAIN HEADER CARD -->
+<div class="lume-header">
+    <img src="lume.png" class="lume-logo">
 
-    <a href="lume-why.html" class="main-button">See why it's never coming</a>
-</header>
+    <div class="lume-header-text">
+        <h1>Lume Stats (NEVER COMING.)</h1>
+        <p>
+            Lume Stats is a modern PC monitoring tool designed for gamers, developers,
+            and streamers. Track FPS, CPU & GPU usage, RAM, temps, network usage,
+            and more — all in a sleek static panel.
+        </p>
 
-<div class="section">
+        <a href="lume-why.html" class="header-btn">See why it's never coming</a>
+    </div>
+</div>
+
+<!-- FEATURES -->
+<div class="section-box">
     <h2>Features</h2>
     <ul class="feature-list">
         <li>Real-time FPS tracking</li>
@@ -177,20 +190,26 @@
     </ul>
 </div>
 
-<div class="section">
+<!-- SCREENSHOTS -->
+<div class="section-box">
     <h2>Screenshots</h2>
     <p>NEVER COMING...</p>
 </div>
 
-<a href="nevercoming" class="download-btn">Download Lume Stats (NEVER COMING)</a>
+<!-- DOWNLOAD BUTTON -->
+<a href="nevercoming" class="download-btn">
+    Download Lume Stats (NEVER COMING)
+</a>
 
-<footer>© 2025 Vexaro Studios — All rights reserved.</footer>
+<footer>
+    © 2025 Vexaro Studios — All rights reserved.
+</footer>
 
+<script src="script.js"></script>
 <script>
     lucide.createIcons();
     particlesJS.load("particles-js", "particles.json");
 </script>
-<script src="script.js"></script>
 
 </body>
 </html>
