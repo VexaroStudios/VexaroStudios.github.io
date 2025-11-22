@@ -27,57 +27,86 @@
         z-index: -1;
     }
 
+    /* CLEANER HEADER */
     header {
-        padding: 120px 20px 60px;
+        padding: 80px 20px 40px;
+        max-width: 950px;
+        margin: 0 auto;
         text-align: center;
     }
 
     .logo-large {
-        width: 150px;
-        margin-bottom: 20px;
-        filter: drop-shadow(0 0 20px #9d4bff);
+        width: 120px;
+        margin-bottom: 15px;
+        filter: drop-shadow(0 0 14px #a060ff);
     }
 
     h1 {
-        font-size: 55px;
-        text-shadow: 0 0 20px #b66bff;
+        font-size: 48px;
+        margin: 10px 0 15px;
+        color: #e7ccff;
+        font-weight: 700;
+        text-shadow: 0 0 15px #b66bff;
     }
 
     .desc {
-        max-width: 750px;
+        max-width: 700px;
         margin: 0 auto;
-        font-size: 18px;
+        opacity: 0.85;
+        font-size: 17px;
         line-height: 1.6;
         color: #d8c3ff;
     }
 
+    .main-button {
+        margin-top: 32px;
+        display: inline-block;
+        padding: 13px 32px;
+        border-radius: 14px;
+        font-size: 18px;
+        background: linear-gradient(135deg, #b066ff, #7a30ff);
+        box-shadow: 0 0 18px #7a2aff;
+        color: white;
+        text-decoration: none;
+        transition: 0.25s;
+    }
+
+    .main-button:hover {
+        transform: scale(1.08);
+        filter: brightness(1.15);
+        box-shadow: 0 0 24px #b066ff;
+    }
+
+    /* CLEAN SECTIONS */
     .section {
-        margin: 100px auto;
-        max-width: 900px;
-        background: rgba(20, 0, 35, 0.5);
-        padding: 40px;
+        max-width: 850px;
+        margin: 60px auto;
+        padding: 32px 40px;
+        background: rgba(25, 0, 40, 0.42);
+        border: 2px solid rgba(155, 75, 255, 0.25);
         border-radius: 20px;
-        border: 2px solid rgba(170, 0, 255, 0.3);
-        box-shadow: 0 0 30px #8f39ff;
-        backdrop-filter: blur(12px);
+        box-shadow: 0 0 22px rgba(140, 60, 255, 0.35);
+        backdrop-filter: blur(10px);
     }
 
     h2 {
-        margin-top: 0;
-        font-size: 32px;
-        color: #d8afff;
+        margin: 0 0 18px;
+        font-size: 28px;
+        color: #e0c3ff;
         text-shadow: 0 0 12px #b66bff;
     }
 
     .feature-list li {
-        font-size: 18px;
-        margin-bottom: 10px;
+        font-size: 17px;
+        margin-bottom: 8px;
+        opacity: 0.9;
     }
 
+    /* DOWNLOAD BUTTON AT BOTTOM */
     .download-btn {
         display: block;
         width: fit-content;
-        margin: 40px auto 80px auto;
+        margin: 50px auto 60px auto;
         padding: 14px 35px;
         border-radius: 14px;
         font-size: 20px;
@@ -97,7 +126,7 @@
     footer {
         text-align: center;
         padding: 40px;
-        opacity: 0.7;
+        opacity: 0.6;
         font-size: 14px;
     }
 </style>
@@ -107,7 +136,7 @@
 
 <div id="particles-js"></div>
 
-<!-- SIDEBAR TOGGLE -->
+<!-- MENU ICON -->
 <div class="sidebar-toggle" onclick="toggleSidebar()">
     <i data-lucide="menu"></i>
 </div>
@@ -121,29 +150,19 @@
 
     <nav class="sidebar-nav">
         <a href="index.html"><i data-lucide="home"></i> Home</a>
-        <a href="about.html"><i data-lucide="info"></i> About</a>
-        <a href="index.html#projects"><i data-lucide="folder"></i> Projects</a>
+        <a href="projects.html"><i data-lucide="folder"></i> Projects</a>
         <a href="contact.html"><i data-lucide="mail"></i> Contact</a>
     </nav>
-
-    <div class="sidebar-socials">
-        <a href="#"><img src="discord.png" width="20"></a>
-        <a href="https://github.com/VexaroStudios"><i data-lucide="github"></i></a>
-        <a href="#"><i data-lucide="instagram"></i></a>
-        <a href="https://x.com/vexarostudios"><i data-lucide="twitter"></i></a>
-    </div>
 </aside>
 
 <header>
     <img src="lume.png" class="logo-large">
     <h1>Lume Stats (NEVER COMING.)</h1>
     <p class="desc">
-        Lume Stats is a modern PC performance monitoring tool designed for gamers,
-        developers, and streamers. Track FPS, CPU & GPU usage, temperature,
-        RAM, network usage, and more — all in an elegant, customizable interface.
+        Lume Stats is a modern PC performance monitoring tool designed for gamers, developers, and streamers. Track FPS, CPU & GPU usage, temperature, RAM, network usage, and more — all in an elegant, customizable interface.
     </p>
 
-    <a href="lume-why.html" class="download-btn" style="margin-top:30px;">See why it's never coming</a>
+    <a href="lume-why.html" class="main-button">See why it's never coming</a>
 </header>
 
 <div class="section">
@@ -165,16 +184,13 @@
 
 <a href="nevercoming" class="download-btn">Download Lume Stats (NEVER COMING)</a>
 
-<footer>
-    © 2025 Vexaro Studios — All rights reserved.
-</footer>
-
-<script src="script.js"></script>
+<footer>© 2025 Vexaro Studios — All rights reserved.</footer>
 
 <script>
     lucide.createIcons();
     particlesJS.load("particles-js", "particles.json");
 </script>
+<script src="script.js"></script>
 
 </body>
 </html>
