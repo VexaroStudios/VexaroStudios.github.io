@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects – Vexaro Studios</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+<style>
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: #070110;
+        color: white;
+        overflow-x: hidden;
+    }
+
+    #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0; left: 0;
+        z-index: -1;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 140px;
+        font-size: 50px;
+        text-shadow: 0 0 20px #b66bff;
+        color: #e6ccff;
+    }
+
+    .projects-section {
+        max-width: 1100px;
+        margin: 60px auto;
+    }
+
+    .project-card {
+        background: rgba(25, 0, 40, 0.45);
+        border: 2px solid rgba(170, 0, 255, 0.35);
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 0 25px #8f39ff;
+        backdrop-filter: blur(14px);
+        margin-bottom: 40px;
+        transition: 0.3s;
+        text-align: center;
+    }
+
+    .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0 35px #b66bff;
+    }
+
+    .project-icon {
+        width: 110px;
+        margin-bottom: 15px;
+        filter: drop-shadow(0 0 12px #b66bff);
+    }
+
+    .project-card h3 {
+        margin: 0;
+        font-size: 26px;
+        color: #d6b3ff;
+        text-shadow: 0 0 12px #b66bff;
+    }
+
+    .project-card p {
+        margin-top: 10px;
+        font-size: 16px;
+        opacity: 0.9;
+        color: #e5d4ff;
+    }
+
+    .see-more-btn, .contact-link {
+        display: inline-block;
+        margin-top: 16px;
+        padding: 10px 22px;
+        background: linear-gradient(135deg, #b066ff, #7a30ff);
+        color: white;
+        text-decoration: none;
+        border-radius: 14px;
+        box-shadow: 0 0 18px #7a2aff;
+        transition: 0.25s;
+    }
+
+    .see-more-btn:hover, .contact-link:hover {
+        transform: scale(1.1);
+        filter: brightness(1.2);
+        box-shadow: 0 0 30px #ad4bff;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div id="sidebar" class="sidebar">
+    <h2 class="sidebar-title">Vexaro</h2>
+
+    <a href="index.html">🏠 Main Page</a>
+    <a href="projects.html" class="active">📁 Projects</a>
+    <a href="socials.html">🌐 Socials</a>
+    <a href="contact.html">📩 Contact</a>
+</div>
+
+<div class="menu-btn" onclick="toggleSidebar()">☰</div>
+
+<div id="particles-js"></div>
+
+<h1>Projects</h1>
+
+<div class="projects-section">
+
+    <!-- PROJECT 1 -->
+    <div class="project-card">
+        <img src="lume.png" class="project-icon">
+        <h3>Lume Stats (NEVER COMING)</h3>
+        <p>
+            LumeStats is a PC monitoring app with FPS tracking, CPU/GPU stats,
+            and customizable Discord Rich Presence.
+        </p>
+        <a href="lume-stats.html" class="see-more-btn">See More</a>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="project-card">
+        <img src="vexaone.png" class="project-icon">
+        <h3>VexaOne</h3>
+        <p>Infos about this app coming soon...</p>
+
+        <a href="https://x.com/projectVexaOne" class="contact-link">Our VexaOne X Account</a>
+    </div>
+
+    <!-- PROJECT 3 -->
+    <div class="project-card">
+        <img src="project3.png" class="project-icon">
+        <h3>Project 3</h3>
+        <p>Unknown</p>
+    </div>
+
+</div>
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("open");
+}
+
+particlesJS.load("particles-js", "particles.json");
+</script>
+
+</body>
+</html>
