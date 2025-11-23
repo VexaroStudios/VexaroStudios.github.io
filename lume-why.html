@@ -70,22 +70,32 @@
 </head>
 <body>
 
-<!-- SIDEBAR -->
-<div id="sidebar" class="sidebar">
-    <h2 class="sidebar-title">Vexaro</h2>
-
-    <a href="index.html">🏠 Main Page</a>
-    <a href="projekte.html">📁 Projekte</a>
-    <a href="socials.html">🌐 Socials</a>
-    <a href="lume.html">💡 Lume Stats</a>
-
-    <div class="sidebar-footer">
-        <p>© 2025 Vexaro</p>
-    </div>
+<!-- SIDEBAR BUTTON -->
+<div class="sidebar-toggle" onclick="toggleSidebar()">
+    <i data-lucide="menu"></i>
 </div>
 
-<!-- SIDEBAR BUTTON -->
-<div class="menu-btn" onclick="toggleSidebar()">☰</div>
+<!-- SIDEBAR -->
+<aside id="sidebar">
+    <div class="sidebar-logo">
+        <img src="logo.png" />
+        <h2>Vexaro</h2>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a href="index"><i data-lucide="home"></i> Home</a>
+        <a href="about"><i data-lucide="info"></i> About</a>
+        <a href="projects"><i data-lucide="folder"></i> Projects</a>
+        <a href="contact"><i data-lucide="mail"></i> Contact</a>
+    </nav>
+
+    <div class="sidebar-socials">
+        <a href="https://discord.gg/"><img src="discord.png" width="20"></a>
+        <a href="https://github.com/VexaroStudios"><i data-lucide="github"></i></a>
+        <a href="#"><i data-lucide="instagram"></i></a>
+        <a href="https://x.com/vexarostudios"><i data-lucide="twitter"></i></a>
+    </div>
+</aside>
 
 <div id="particles-js"></div>
 
