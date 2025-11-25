@@ -56,6 +56,9 @@ Stay connected with us:
   <img src="https://skillicons.dev/icons?i=twitter" width="40" />
 </a>
 
+<a href="https://paypal.me/vexarostudios" target="_blank">
+  <img src="https://skillicons.dev/icons?i=paypal" width="40" />
+</a>
 ---
 
 ## 📬 Contact
