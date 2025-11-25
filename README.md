@@ -57,8 +57,10 @@ Stay connected with us:
 </a>
 
 <a href="https://paypal.me/vexarostudios" target="_blank">
-  <img src="https://skillicons.dev/icons?i=paypal" width="40" />
+  <img src="paypal.jpg" width="40" />
 </a>
+
+**Donating via PayPal is NOT mandatory, but it shows that you want to support our projects, and we are grateful!**
 ---
 
 ## 📬 Contact
