@@ -42,6 +42,22 @@ This repository is **exclusively** used for the official Vexaro Studios website 
 
 ---
 
+## 🔗 Socials
+
+Stay connected with us:
+
+<a href="https://discord.com/invite/Comingsoon" target="_blank">
+  <img src="https://skillicons.dev/icons?i=discord" width="40" />
+</a>
+<a href="https://instagram.com/Comingsoon" target="_blank">
+  <img src="https://skillicons.dev/icons?i=instagram" width="40" />
+</a>
+<a href="https://x.com/VexaroStudios" target="_blank">
+  <img src="https://skillicons.dev/icons?i=twitter" width="40" />
+</a>
+
+---
+
 ## 📬 Contact
 
 Have a question or want to reach out?  
